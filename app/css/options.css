@@ -1,0 +1,90 @@
+#wrapper {
+    height: 100%;
+    margin: 50px auto;
+    float: none;
+    padding: 40px;
+    border: 4px solid black;
+    border-radius: 12px;
+}
+
+#optionsContent {
+    min-height: 200px;
+}
+
+.form-medium .control-label {
+    width: 180px;
+}
+
+.form-medium .controls {
+    margin-left: 200px;
+}
+
+.form-medium .control-group {
+    margin-bottom: 7px;
+}
+
+#options legend {
+    margin-bottom: 0px;
+}
+
+#options .control-group {
+    margin-top: 5px;
+}
+
+#options form {
+    margin-bottom: 5px;
+}
+
+#options hr {
+    margin: 5px 0px;
+}
+
+#compatibility-list td, #compatibility-actions th {
+    text-align: center;
+}
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: 14px Georgia, serif;
+}
+
+article, aside, figure, footer, header, hgroup,
+menu, nav, section {
+    display: block;
+}
+
+#options-wrapper {
+    width: 960px;
+    margin: 40px auto;
+}
+
+form div {
+    margin: 0 0 5px 0;
+    clear: both;
+}
+
+    form div label {
+        float: left;
+        width: 200px;
+        text-align: right;
+        margin-right: 30px;
+        /*margin-bottom: 15px;*/
+    }
+
+    form div input {
+        width: 200px;
+        /*float: left;*/
+        margin-right: 30px;
+    }
+
+h1 {
+    font: bold 42px Helvetica, Arial, Sans-Serif;
+    margin: 0 0 20px 0;
+}

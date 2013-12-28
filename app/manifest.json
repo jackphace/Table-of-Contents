@@ -1,0 +1,49 @@
+{
+  "manifest_version": 2,
+  "name": "Table of Contentedness",
+  "description": "THIS MAKES WEBSITES 25% MORE GANGSTA AND UNDERSTANDABLE",
+  "version": "1.0.1",
+   "options_page": "options.html",
+  "permissions": [
+    "storage",
+	"activeTab",
+	"tabs",
+	"<all_urls>"
+  ],
+  "commands": {
+    "build-toc": {
+      "suggested_key": { 
+		"default": "Shift+Alt+1" 
+		},
+      "description": "Builds table of contents for the page."
+    },
+    "select-build-toc": {
+      "suggested_key": { 
+	  "default": "Alt+1" 
+	  },
+      "description": "Select where to build the table of contents."
+    }
+  },
+  "background": {
+    "scripts": ["jquery-1.9.1.js", "toc-controller.js"],
+	"persistent": false
+  },
+    "web_accessible_resources": [
+	"css/toc.css",
+	"css/toc3.css",
+	"img/1.png",
+	"img/2.png",
+	"img/3.png",
+	"img/4.png",
+	"img/5.png",
+	"img/6.png",
+	"img/7.png",
+	"img/8.png",
+	"img/tsun.png",
+	"img/childless.png",
+	"img/collapsed.png",
+	"img/expanded.png",
+	"img/expanded-hovered.png",
+	"img/hovered.png"
+  ]
+}

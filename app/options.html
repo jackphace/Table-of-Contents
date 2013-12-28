@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="./css/bootstrap-responsive.css" type="text/css" />
+    <link rel="stylesheet" href="./css/options.css" type="text/css">
+    <title>Table of Contents Options</title>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>-->
+</head>
+<body>
+    <div class="container span8" id="wrapper">
+        <div class="row">
+            <div class="span8">
+                <!--Tabs-->
+                <!--<ul class="nav nav-tabs">-->
+                <ul class="nav nav-pills">
+                    <li class="active">
+                        <a href="#options" data-toggle="tab">Options</a>
+                    </li>
+                    <li>
+                        <a href="#about" data-toggle="tab">About</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="optionsContent">
+                    <!--Options tab-->
+                    <div class="tab-pane fade in active" id="options">
+                        <form>
+                            <!--Set the hotkeys for the various functions of the table of contents-->
+                            <fieldset>
+                                <legend>Hotkeys</legend>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <div>
+                                            <label for="tocHotkey">Toggle Table of Contents</label>
+                                            <input id="tocHotkey" name="tocHotkey" type="text" maxlength="16" value="t">
+                                        </div>
+                                        <div>
+                                            <label for="previousHotkey">Previous Link</label>
+                                            <input id="previousHotkey" name="previousHotkey" type="text" maxlength="16" value="z">
+                                        </div>
+                                        <div>
+                                            <label for="currentHotkey">Current Link</label>
+                                            <input id="currentHotkey" name="currentHotkey" type="text" maxlength="16" value="x">
+                                        </div>
+                                        <div>
+                                            <label for="nextHotkey">Next Link</label>
+                                            <input id="nextHotkey" name="nextHotkey" type="text" maxlength="16" value="c">
+                                        </div>
+                                        <div>
+                                            <label for="collapseGroupHotkey">Collapse Group</label>
+                                            <input id="collapseGroupHotkey" name="collapseGroupHotkey" type="text" maxlength="16" value="v">
+                                        </div>
+                                        <div>
+                                            <label for="selectParentHotkey">Select Parent</label>
+                                            <input id="selectParentHotkey" name="selectParentHotkey" type="text" maxlength="16" value="b">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <!--Extra features of the table of contents-->
+                            <fieldset>
+                                <legend>Features</legend>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="activeWhenMinimized" checked />
+                                            Shortcuts active when minimized?
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="expandOnClick" />
+                                            Expand upon selecting a header?
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="skipCollapsed" checked />
+                                            Skip over collapsed headers with navigation keys?
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <!--Filter out what the table of contents is built out of-->
+                            <fieldset>
+                                <legend>Filters</legend>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="requireDeeper" />
+                                            Require the next header to be further down the page?
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox" id="filterEmptyHeaders" />
+                                            Ignore headers with no text?
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <!--Control the speeds of the animations of the table of contents-->
+                            <fieldset>
+                                <legend>Speeds</legend>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <div>
+                                            <label for="scrollSpeed">Scroll Speed</label>
+                                            <input id="scrollSpeed" name="scrollSpeed" type="range" min="100" max="2000" step="50" value="400">
+                                            <output for="scrollSpeed"></output>
+                                        </div>
+                                        <div>
+                                            <label for="toggleSpeed">Toggle Speed</label>
+                                            <input id="toggleSpeed" name="toggleSpeed" type="range" min="100" max="2000" step="50" value="400">
+                                            <output for="toggleSpeed"></output>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <button id="save" class="btn-primary btn-small">Save</button>
+                            <div id="status"></div>
+                        </form>
+                    </div>
+
+                    <!--About tab-->
+                    <div class="tab-pane fade" id="about">
+                        <p>Hello!  I'm Jack and I liked the way MS Word had table of contents!</p>
+                        <p>You can reach me at <a href="mailto:dev@minds-ai.com">dev@minds-ai.com</a> if anything is broken, or to make suggestions.</p>
+                        <p>If you have any interest in contributing to the project or looking at the code, check out the ***NEED TO ADD PROPER GIT REPO*** <a href="https://github.com/jackphace/Music-Remote">Git repo.</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="options.js"></script>
+    <script src="css/bootstrap.min.js"></script>
+</body>
+</html>

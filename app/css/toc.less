@@ -1,0 +1,195 @@
+@import "lesshat.less";
+
+@linkWidth: 180px;
+@levelMargin: 7px;
+@maxOffset: @levelMargin * 5;
+@tocWidth: 260px;
+@sidePadding: 10px 10px;
+@textColor: black;
+
+/*Everything should be inside toc-side > toc-wrapper to prevent interference with the website the CSS is injected into*/
+#toc-side {
+    .reset();
+    .thinScrollbar();
+    .border-radius(7px);
+    border: 3px groove grey;
+    z-index: 2147483647;
+    background-image: url("../img/1.png");
+    //jaylur version
+    /*background-image: url("../img/5.png");
+    background-image: url("../img/tsun.png");
+    min-height: 523px;*/
+    //end
+    width: @tocWidth;
+    top: 5%;
+    left: 20px;
+    max-height: 80%;
+    position: fixed;
+    font-family: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace !important;
+    font-size: 16px;
+    padding: @sidePadding;
+    overflow-y: auto;
+    //Experimental opacity over hover
+    .opacity(.5);
+
+    &:hover {
+        .opacity(1);
+    }
+
+    #toc-wrapper {
+        width: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        //Override colors
+        color: @textColor;
+
+        .toc-group {
+            clear: both;
+            width: 100%;
+            //Left margins for toggles
+            .toggleH(6);
+            //Max-width for links
+            .tocH(6);
+            //Collapsed groups
+            &.toc-collapsed {
+                overflow-y: hidden;
+                //Groups underneath a collapsed group should be hidden
+                .toc-group {
+                    display: none;
+                }
+            }
+            //Expanded groups
+            &.toc-expanded {
+                overflow-y: auto;
+            }
+            //Childless groups
+            &.toc-childless {
+                overflow-y: auto;
+            }
+
+            .toc-toggle {
+                width: 15px;
+                height: 15px;
+                float: left;
+                clear: both;
+                margin-right: 5px;
+            }
+
+            a {
+                -ms-text-overflow: ellipsis;
+                -o-text-overflow: ellipsis;
+                text-overflow: ellipsis;
+                overflow-x: hidden;
+                white-space: nowrap;
+                //max-width: 180px;
+                color: #333;
+                float: left;
+                //Active state of links
+                &.active {
+                    background-color: #AAF;
+                }
+            }
+        }
+        //Icons for toggles in various group states
+        .toc-collapsed {
+            >.toc-toggle {
+                background-image: url('../img/collapsed.png');
+            }
+        }
+
+        .toc-childless {
+            >.toc-toggle {
+                background-image: url('../img/childless.png');
+            }
+        }
+
+        .toc-expanded {
+            >.toc-toggle {
+                background-image: url('../img/expanded.png');
+
+                &:hover {
+                    background-image: url('../img/expanded-hovered.png');
+                }
+            }
+        }
+        //Accelerator
+        .toc-accelerator {
+            float: right;
+        }
+    }
+}
+
+.toc-hovered {
+    background-image: url('../img/hovered.png');
+}
+
+//Loop to generate toggle offset
+.toggleH (@index) when (@index > 0) {
+    (~".toggleH@{index}") {
+        margin-left: ((@index - 1) * @levelMargin);
+    }
+
+    .toggleH(@index - 1);
+}
+
+.toggleH(0) {
+}
+//End loop
+
+//Loop to generate max length of a link at a particular depth
+.tocH (@index) when (@index > 0) {
+    (~".tocH@{index}") {
+        max-width: @linkWidth - ((@index - 1) * @levelMargin);
+    }
+
+    .tocH(@index - 1);
+}
+
+.tocH(0) {
+}
+//End loop
+
+//Mixin to reset all elements at a particular level
+.reset() {
+    //http://meyerweb.com/eric/tools/css/reset/
+    //v2.0 | 20110126
+    //License: none (public domain)
+    div, span, h1, h2, h3, h4, h5, h6, p,
+    a {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    // HTML5 display-role reset for older browsers
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+
+    line-height: 1.2 !important;
+
+    ol, ul {
+        list-style: none;
+    }
+}
+
+//Scrollbar design
+.thinScrollbar() {
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 7px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
+}
