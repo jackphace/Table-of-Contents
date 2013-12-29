@@ -1,9 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "Table of Contentedness",
-  "description": "THIS MAKES WEBSITES 25% MORE GANGSTA AND UNDERSTANDABLE",
+  "name": "Navigator",
   "version": "1.0.1",
-   "options_page": "options.html",
+  "description": "Generates a table of contents similar to the MS Word navigation panel.",
+  "icons": {
+	"128": "img/icon_128.png"
+  },
+  "options_page": "options.html",
   "permissions": [
     "storage",
 	"activeTab",
@@ -30,15 +33,7 @@
   },
     "web_accessible_resources": [
 	"css/toc.css",
-	"css/toc3.css",
 	"img/1.png",
-	"img/2.png",
-	"img/3.png",
-	"img/4.png",
-	"img/5.png",
-	"img/6.png",
-	"img/7.png",
-	"img/8.png",
 	"img/tsun.png",
 	"img/childless.png",
 	"img/collapsed.png",

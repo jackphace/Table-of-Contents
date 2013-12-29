@@ -1,24 +1,27 @@
-﻿//Settings provided by toc-controller.js:
-//"collapseGroupHotkey", "currentHotkey", "headingOffset", "nextHotkey", "previousHotkey", "scrollSpeed", "tocHotkey", "toggleSpeed"
+﻿//When the page is ready, built the table of contents on everything
+$(function() {
+    buildToC();
+});
 
-//var collapseGroupHotkey = 'v';
-//var currentHotkey = 'x';
-//var nextHotkey = 'c';
-//var tocHotkey = 't';
-//var selectParentHotkey = 'b';
-//var scrollSpeed = 400;
-//var toggleSpeed = 400;
-//var skipCollapsed = false;                  //Skips over children of collapsed elements
-//var expandOnClick = false;                  //If true, expands collapsed sections when clicked
-//var activeWhenMinimized = true;             //If true, hotkeys will work when toggled
-//var requireDeeper = false;                  //If true, filters headers not further down in the page
-//var filterEmptyHeaders = false;             //If true, filters headers of all whitespace
-
+//Hotkeys/speeds
+var collapseGroupHotkey = 'v';
+var previousHotkey = 'z';
+var currentHotkey = 'x';
+var nextHotkey = 'c';
+var tocHotkey = 't';
+var selectParentHotkey = 'b';
+var scrollSpeed = 400;
+var toggleSpeed = 400;
 
 //Default settings not handled in chrome storage/options page
 var linkHeight = '17px';
 var selectors = 'h1,h2,h3,h4,h5,h6';
-var hoverableSelectors = 'div,body';
+var hoverableSelectors = 'div,body';  //',html';
+var skipCollapsed = false;                  //Skips over children of collapsed elements
+var expandOnClick = false;                  //If true, expands collapsed sections when clicked
+var activeWhenMinimized = true;             //If true, hotkeys will work when toggled
+var requireDeeper = false;                  //If true, filters headers not further down in the page
+var filterEmptyHeaders = false;             //If true, filters headers of all whitespace
 
 //Used to generate classes and IDs of some table of contents elements
 var prefix = 'toc';
@@ -204,7 +207,7 @@ function buildToC(container) {
 }
 
 //Filter out targets for the table of contents
-function filterHeadings(headings) {
+function filterHeadings(headings) {    
     //Filter out elements that are not lower in the document    
     if (requireDeeper) {
         //The first heading will be used as the default top point
@@ -228,7 +231,7 @@ function filterHeadings(headings) {
 
     //Filter out empty headers    
     if (filterEmptyHeaders) {
-        headings = headings.filter(function (index) {
+        headings = headings.filter(function(index) {
             return $.trim($(this).text()) !== '';
         });
     }
@@ -306,7 +309,7 @@ function chooseContainer() {
         //http://stackoverflow.com/questions/209029/best-way-to-remove-an-event-handler-in-jquery
         $(document).off('click.chooseContainer');
         $(hoverableSelectors).off('mouseenter.tocHover').off('mouseleave.tocHover').removeClass(hoveredId + ' ' + hoveringId);
-
+        
         //Make sure there is no background striping.  Weird bug.
         $('html').redraw();
     });
@@ -319,7 +322,7 @@ function chooseContainer() {
 
     //Display hover stripes over the deepest item selected.
     $(hoverableSelectors)
-            .on('mouseenter.tocHover',
+            .on('mouseenter.tocHover',    
         //On mouse enter
         function () {
             //Workaround for broken :hover pseudo in jQuery 1.91
@@ -349,7 +352,7 @@ function highlightDeepestHoverable() {
     //Make sure there is no background striping.  Weird bug.
     $('html').redraw();
 
-    hovered.each(function (index, h) {
+    hovered.each(function (index, h) {        
         var sectionDepth = $(h).parents().length;
 
         if (sectionDepth > depth) {
@@ -362,8 +365,8 @@ function highlightDeepestHoverable() {
 }
 
 //Helper function to avoid weird issue where background keeps hovered stripes
-jQuery.fn.redraw = function () {
-    return this.hide(0, function () { $(this).show() });
+jQuery.fn.redraw = function() {
+    return this.hide(0, function(){$(this).show()});
 };
 
 //Toggle the expand state of the currently active group
@@ -431,7 +434,7 @@ function moveSection(offset) {
     //Select all toc-groups if...
     if (activeWhenMinimized ||                          //You don't care if the ToC is minimized
         $('#' + sidebarId).css('display') !== 'none'        //Or if the ToC isn't minimized
-        //        $('.toc-collapsed .active').length === 1        //Or if the active link is hidden..?
+//        $('.toc-collapsed .active').length === 1        //Or if the active link is hidden..?
         ) {
 
         //Find all the groups that are "visible"
@@ -467,7 +470,7 @@ function moveSection(offset) {
 //Toggles the collapsed state of the table of contents
 function toggleToC() {
     var side = $('#' + sidebarId);
-
+    
     //If not collapsed, set a max-height equal to current height to prevent the ToC expanding downwards
     //TODO do this in CSS
     if (side.width() !== 0)

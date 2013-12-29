@@ -15,8 +15,8 @@ chrome.runtime.onInstalled.addListener(function (details) {
             "skipCollapsed": "true",
             "requireDeeper": "false",
             "filterEmptyHeaders": "false",
-            "scrollSpeed": "400",
-            "toggleSpeed": "400"
+            "scrollSpeed": "350",
+            "toggleSpeed": "350"
         };
 
         chrome.storage.sync.set(defaultValues, function () {

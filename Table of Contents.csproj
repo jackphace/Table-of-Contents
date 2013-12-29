@@ -49,6 +49,7 @@
     <Content Include="app\css\toc.min.css">
       <DependentUpon>toc.less</DependentUpon>
     </Content>
+    <Content Include="app\example.html" />
     <Content Include="app\img\1.png" />
     <Content Include="app\img\childless.png" />
     <Content Include="app\img\collapsed.png" />
@@ -60,7 +61,6 @@
     <Content Include="app\mousetrap.js" />
     <Content Include="app\options.html" />
     <Content Include="app\options.js" />
-    <Content Include="app\test.html" />
     <Content Include="app\toc.js" />
     <Content Include="app\toc-controller.js" />
     <Content Include="Properties\build\lib\Ionic.Zip.DLL" />
@@ -72,8 +72,24 @@
     <Content Include="app\css\lesshat.less" />
     <Content Include="app\WebWorkbench.mswwsettings" />
     <Content Include="app\css\toc.less" />
+    <Content Include="read.me" />
+    <Content Include="standalone\css\toc.css" />
+    <Content Include="standalone\css\toc.min.css" />
+    <Content Include="standalone\example.html" />
+    <Content Include="standalone\img\1.png" />
+    <Content Include="standalone\img\childless.png" />
+    <Content Include="standalone\img\collapsed.png" />
+    <Content Include="standalone\img\expanded-hovered.png" />
+    <Content Include="standalone\img\expanded.png" />
+    <Content Include="standalone\img\hovered.png" />
+    <Content Include="standalone\img\tsun.png" />
+    <Content Include="standalone\jquery-1.9.1.js" />
+    <Content Include="standalone\jquery.scrollTo-1.4.3.1-min.js" />
+    <Content Include="standalone\mousetrap.js" />
+    <Content Include="standalone\toc.js" />
     <None Include="scripts\_references.js" />
     <None Include="scripts\chrome-api-vsdoc.js" />
+    <Content Include="standalone\read.me" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\manifest.json" />
